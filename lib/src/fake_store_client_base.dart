@@ -61,7 +61,8 @@ class FakeStoreClient {
                   productId: product.id,
                   quantity: prod.quantity,
                   title: product.title,
-                  price: product.price
+                  price: product.price,
+                  image: product.image
                 ),
               );
             }).toList();

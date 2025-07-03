@@ -59,12 +59,14 @@ class ProductCart {
   final int quantity;
   final String title;
   final double price;
+  final String image;
 
   ProductCart({
     required this.productId,
     required this.quantity,
     required this.title,
     required this.price,
+    required this.image,
   });
 
   factory ProductCart.fromJson(Map<String, dynamic> json) => ProductCart(
@@ -72,6 +74,7 @@ class ProductCart {
     quantity: json["quantity"],
     title: json["title"],
     price: json["price"],
+    image: json["image"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -79,6 +82,7 @@ class ProductCart {
     "quantity": quantity,
     "title": title,
     "price": price,
+    "image": image,
   };
 
   String toString() {
