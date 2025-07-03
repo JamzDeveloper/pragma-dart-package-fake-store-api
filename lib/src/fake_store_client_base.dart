@@ -1,12 +1,5 @@
-// // TODO: Put public facing types in this file.
-
-// /// Checks if you are awesome. Spoiler: you are.
-// class Awesome {
-//   bool get isAwesome => true;
-// }
 
 import 'package:dartz/dartz.dart';
-import 'package:fake_store_client/src/models/cart.dart';
 import 'package:fake_store_client/src/models/enriched_cart.dart';
 import 'package:fake_store_client/src/models/product.dart';
 import 'package:fake_store_client/src/models/user.dart';

@@ -1,39 +1,55 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# 🛍️ Fake Store Client
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages). 
+**Fake Store Client** es un cliente Dart que permite consumir la API de [Fake Store API](https://fakestoreapi.com/) de forma sencilla y rápida. Ideal para pruebas, ejemplos o aplicaciones que requieran productos ficticios, usuarios y carritos de compras.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages). 
--->
+## 🚀 Características
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+- Obtener productos por ID: `getProduct(id)`
+- Obtener usuarios por ID: `getUser(id)`
+- Obtener carritos enriquecidos con productos y usuarios: `getEnrichedCartById(id)`
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+## 💻 Ejemplo de uso
 
 ```dart
-const like = 'sample';
+import 'package:fake_store_client/fake_store_client.dart';
+
+void main() async {
+  final client = FakeStoreClient();
+
+  final product = await client.getProduct(1);
+  product.fold(
+    (err) => print('Error: $err'),
+    (data) => print('Producto: $data'),
+  );
+}
+
 ```
 
-## Additional information
+## 📦 Instalacion
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Agrega esta dependencia a tu archivo pubspec.yaml:
+
+
+```bash
+dependencies:
+  fake_store_client: ^1.0.0
+  ```
+
+Luego ejecutar
+
+```bash
+dart pub get
+```
+
+-- Puedes ver ejemplos de uso en el directorio example/.
+
+## 📚 Estructura del código
+
+La librería contiene lo siguiente:
+
+- `lib/fake_store_client.dart`: entrada principal
+- `lib/src/models/`: contiene modelos como `Product`, `Cart`, `User`, etc.
+- `lib/src/services/`: lógica de negocio para obtener datos desde la API
+- `lib/src/fake_store_client_base.dart`: lógica del cliente
+
+Puedes revisar el archivo [`example/lib/main.dart`](https://pub.dev/packages/fake_store_client/example) para ver una implementación completa.
