@@ -1,6 +1,6 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:fake_store_client/src/models/enriched_cart.dart';
+import 'package:fake_store_client/src/models/failure.dart';
 import 'package:fake_store_client/src/models/product.dart';
 import 'package:fake_store_client/src/models/user.dart';
 import 'package:fake_store_client/src/services/cart_service.dart';
@@ -22,6 +22,9 @@ class FakeStoreClient {
 
   Future<Either<String, ProductModel>> getProduct(int id) =>
       productService.getProduct(id);
+
+  Future<Either<Failure, List<ProductModel>>> fetchProducts() =>
+      productService.fetchProducts();
 
   Future<Either<String, UserModel>> getUser(int id) => userService.getUser(id);
 
@@ -55,7 +58,7 @@ class FakeStoreClient {
                   quantity: prod.quantity,
                   title: product.title,
                   price: product.price,
-                  image: product.image
+                  image: product.image,
                 ),
               );
             }).toList();
